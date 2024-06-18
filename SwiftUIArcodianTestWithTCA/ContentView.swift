@@ -15,6 +15,12 @@ struct AppType: Identifiable {
     var items: [AppType]?
 }
 
+struct AppChildType: Identifiable {
+    let id = UUID()
+    let name: String
+    let intro: String
+}
+
 struct ContentView: View {
     var appTypes: [AppType] = [
         AppType(name: "카카오", items: [
@@ -30,26 +36,45 @@ struct ContentView: View {
         ]),
         AppType(name: "페이스북")
     ]
-    
+
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(appTypes) { app in
-                    OutlineGroup(app, children: \.items) { item in
-                        HStack {
-                            Text(item.name)
-                            Spacer()
-                            Text("\(item.currentNum)")
+        List {
+            ForEach(appTypes) { app in
+                DisclosureGroup {
+                    if let items = app.items {
+                        ForEach(items) { item in
+                            HStack {
+                                Text(item.name)
+                                    .font(.body)
+                                Spacer()
+                                Text("\(item.intro)")
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                            }
+                            .padding(.vertical, 2)
                         }
+                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 20))
                     }
+                } label: {
+                    HStack {
+                        Text(app.name)
+                            .font(.headline)
+                        Spacer()
+                        Text("\(app.currentNum)")
+                            .font(.subheadline)
+                            .foregroundColor(.blue)
+                    }
+                    .padding(.vertical, 8)
                 }
+               
             }
-            .listStyle(InsetGroupedListStyle())
-            .navigationTitle("Apps")
         }
+        .listStyle(PlainListStyle())
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
