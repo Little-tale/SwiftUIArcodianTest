@@ -47,7 +47,7 @@ struct ContentView: View {
                                 Text(item.name)
                                     .font(.body)
                                 Spacer()
-                                Text("\(item.intro)")
+                                Text(item.intro ?? "")
                                     .font(.caption)
                                     .foregroundColor(.gray)
                             }
