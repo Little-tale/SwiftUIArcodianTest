@@ -11,6 +11,7 @@
 		7B26D20C2C21992100BC9912 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B26D20B2C21992100BC9912 /* ContentView.swift */; };
 		7B26D20E2C21992200BC9912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B26D20D2C21992200BC9912 /* Assets.xcassets */; };
 		7B26D2112C21992200BC9912 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B26D2102C21992200BC9912 /* Preview Assets.xcassets */; };
+		7B26D2192C21996E00BC9912 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 7B26D2182C21996E00BC9912 /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B26D2192C21996E00BC9912 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +85,9 @@
 			dependencies = (
 			);
 			name = SwiftUIArcodianTestWithTCA;
+			packageProductDependencies = (
+				7B26D2182C21996E00BC9912 /* ComposableArchitecture */,
+			);
 			productName = SwiftUIArcodianTestWithTCA;
 			productReference = 7B26D2062C21992100BC9912 /* SwiftUIArcodianTestWithTCA.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = 7B26D1FD2C21992100BC9912;
+			packageReferences = (
+				7B26D2172C21996E00BC9912 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 7B26D2072C21992100BC9912 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -287,9 +295,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = LittleTail.SwiftUIArcodianTestWithTCA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -316,9 +328,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = LittleTail.SwiftUIArcodianTestWithTCA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -344,6 +360,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7B26D2172C21996E00BC9912 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.11.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7B26D2182C21996E00BC9912 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B26D2172C21996E00BC9912 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7B26D1FE2C21992100BC9912 /* Project object */;
 }
