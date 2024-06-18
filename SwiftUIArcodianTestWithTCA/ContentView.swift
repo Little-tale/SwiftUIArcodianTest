@@ -15,12 +15,6 @@ struct AppType: Identifiable {
     var items: [AppType]?
 }
 
-struct AppChildType: Identifiable {
-    let id = UUID()
-    let name: String
-    let intro: String
-}
-
 struct ContentView: View {
     var appTypes: [AppType] = [
         AppType(name: "카카오", items: [
@@ -36,18 +30,23 @@ struct ContentView: View {
         ]),
         AppType(name: "페이스북")
     ]
-
+    
     var body: some View {
-        List {
-            ForEach(appTypes) { app in
-                Section(header: Text(app.name)) {
+        NavigationView {
+            List {
+                ForEach(appTypes) { app in
                     OutlineGroup(app, children: \.items) { item in
-                        Text(item.name)
+                        HStack {
+                            Text(item.name)
+                            Spacer()
+                            Text("\(item.currentNum)")
+                        }
                     }
                 }
             }
+            .listStyle(InsetGroupedListStyle())
+            .navigationTitle("Apps")
         }
-        .padding()
     }
 }
 
